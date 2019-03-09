@@ -72,12 +72,13 @@ var ARCarDemo = createReactClass({
         <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
           <Viro3DObject
               scale={[0.1, 0.1, 0.1]}
-              position={[0.0, 0.0, 0]}
-              source={require('./res/tesla/collapsed.vrx')}
-              type="VRX"
+              position={[1, -.5, 0.2]}
+              source={require('./res/tesla/recovery1.obj')}
+              resources={[require('./res/tesla/recovery1.mtl')]}
+              type="OBJ"
               materials={this.state.texture}
               onClick={this._onClick}
-              animation={{name:"scaleCar", run:this.state.animateCar,}} />
+              animation={{name:"scaleWoman", run: true, loop: false}} />
 
           <ViroSpotLight
               innerAngle={5}
@@ -102,13 +103,23 @@ var ARCarDemo = createReactClass({
         <ViroARImageMarker target={"allergic"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
           <Viro3DObject
               scale={[0.1, 0.1, 0.1]}
-              position={[0.0, 0.0, 0]}
+              position={[0.7, 0.3, 0]}
               source={require('./res/tesla/epipen.obj')}
               resources={[require('./res/tesla/epipen.mtl')]}
               type="OBJ"
               materials={this.state.texture}
               onClick={this._toggleButtons}
-              animation={{name:"scaleCar", run:this.state.animateCar,}} />
+              animation={{name:"scaleEpipen", run: true, loop: false}} />
+
+          <Viro3DObject
+              scale={[0.1, 0.1, 0.1]}
+              position={[1, -.5, 0.2]}
+              source={require('./res/tesla/recovery4.obj')}
+              resources={[require('./res/tesla/recovery4.mtl')]}
+              type="OBJ"
+              materials={this.state.texture}
+              onClick={this._onClick}
+              animation={{name:"scaleWoman", run: true, loop: false}} />
 
           <ViroSpotLight
               innerAngle={5}
@@ -139,7 +150,7 @@ var ARCarDemo = createReactClass({
               type="OBJ"
               materials={this.state.texture}
               onClick={this._toggleButtons}
-              animation={{name:"scaleCar", run:this.state.animateCar,}} />
+              animation={{name:"scaleWoman", run: true, loop: false}} />
 
           <ViroSpotLight
               innerAngle={5}
@@ -309,6 +320,10 @@ ViroAnimations.registerAnimations({
     scaleDown:{properties:{scaleX:0, scaleY:0, scaleZ:0,},
                   duration: 200,},
     scaleCar:{properties:{scaleX:.09, scaleY:.09, scaleZ:.09,},
+                  duration: 500, easing: "bounce"},
+    scaleEpipen:{properties:{scaleX:.01, scaleY:.01, scaleZ:.01,},
+                  duration: 500, easing: "bounce"},
+    scaleWoman:{properties:{scaleX:1, scaleY:1, scaleZ:1,},
                   duration: 500, easing: "bounce"},
     scaleSphereUp:{properties:{scaleX:.8, scaleY:.8, scaleZ:.8,},
                   duration: 50, easing: "easeineaseout"},
