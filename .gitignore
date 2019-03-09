@@ -1,0 +1,13 @@
+android
+app.json
+bin
+index.android.js
+index.ios.js
+index.js
+ios
+metro.config.js
+node_modules
+package.json
+package-lock.json
+rn-cli.config.js
+setup-ide.sh
