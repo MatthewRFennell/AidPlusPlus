@@ -292,7 +292,7 @@ ViroARTrackingTargets.createTargets({
     physicalWidth : 0.165 // real world width in meters
   },
   collapsed : {
-    source : require('./res/collapsed.jpg'),
+    source : require('./res/haoi.jpg'),
     orientation : "Up",
     physicalWidth : 0.165
   },

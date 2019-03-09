@@ -8,6 +8,7 @@ Kd 0.8 0.8 0.8
 Ks 0.8 0.8 0.8
 d 1
 illum 2
+map_Kd /home/matthew/textures/sintel_teeth_diff.jpg
 
 newmtl None_sintel_eyeball_diff.j
 Ns 0
@@ -16,6 +17,7 @@ Kd 0.8 0.8 0.8
 Ks 0.8 0.8 0.8
 d 1
 illum 2
+map_Kd /home/matthew/textures/sintel_eyeball_diff.jpg
 
 newmtl None_sintel_skin_diff.jpg
 Ns 0
@@ -24,3 +26,4 @@ Kd 0.8 0.8 0.8
 Ks 0.8 0.8 0.8
 d 1
 illum 2
+map_Kd /home/matthew/textures/sintel_skin_diff.jpg
