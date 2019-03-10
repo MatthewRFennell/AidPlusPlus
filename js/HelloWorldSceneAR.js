@@ -58,28 +58,9 @@ var ARCarDemo = createReactClass({
                     style={styles.cutTextStyle}
                     onClick={this._onClickPoisonText}/>
 
-          <ViroText
-              text = {"Wash your skin!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 1, -1]} />
-
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"cut"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-
-          <ViroSound paused={false}
-                     muted={false}
-                     source={require('./res/alarm.mp3')}
-                     loop={false}
-                     volume={100.0}
-                     onFinish={this.onFinishSound}
-                     onError={this.onErrorSound}/>
-
-          <ViroText text={this.state.cutText}
-                    scale={[.5, .5, .5]}
-                    position={[1, 0, 1]}
-                    style={styles.cutTextStyle}
-                    onClick={this._onClickCutText} />
 
           <Viro3DObject
               scale={[0.1, 0.1, 0.1]}
@@ -107,6 +88,21 @@ var ARCarDemo = createReactClass({
               position={[0, -0.001, 0]}
               width={2.5} height={2.5}
               arShadowReceiver={true} />
+
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={false}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
+
+          <ViroText text={this.state.cutText}
+                    scale={[.5, .5, .5]}
+                    position={[1, 0, 1]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickCutText} />
+
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
@@ -167,14 +163,6 @@ var ARCarDemo = createReactClass({
 
         <ViroARImageMarker target={"allergic"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
-          <ViroSound paused={false}
-                     muted={false}
-                     source={require('./res/alarm.mp3')}
-                     loop={false}
-                     volume={100.0}
-                     onFinish={this.onFinishSound}
-                     onError={this.onErrorSound}/>
-
           <Viro3DObject
               position={[0.7, 0.3, 0]}
               source={require('./res/tesla/epipen.obj')}
@@ -209,10 +197,6 @@ var ARCarDemo = createReactClass({
               width={2.5} height={2.5}
               arShadowReceiver={true} />
 
-        </ViroARImageMarker>
-
-        <ViroARImageMarker target={"burn"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-
           <ViroSound paused={false}
                      muted={false}
                      source={require('./res/alarm.mp3')}
@@ -220,6 +204,10 @@ var ARCarDemo = createReactClass({
                      volume={100.0}
                      onFinish={this.onFinishSound}
                      onError={this.onErrorSound}/>
+
+        </ViroARImageMarker>
+
+        <ViroARImageMarker target={"burn"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
           <Viro3DObject
               scale={[0.1, 0.1, 0.1]}
@@ -247,6 +235,14 @@ var ARCarDemo = createReactClass({
               position={[0, -0.001, 0]}
               width={2.5} height={2.5}
               arShadowReceiver={true} />
+
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={false}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
 
         </ViroARImageMarker>
 
