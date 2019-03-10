@@ -52,7 +52,7 @@ var ARCarDemo = createReactClass({
           <ViroSound paused={false}
                      muted={false}
                      source={require('./res/alarm.mp3')}
-                     loop={true}
+                     loop={false}
                      volume={100.0}
                      onFinish={this.onFinishSound}
                      onError={this.onErrorSound}/>
@@ -67,6 +67,14 @@ var ARCarDemo = createReactClass({
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"cut"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={false}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
 
           <ViroText text={this.state.cutText}
                     scale={[.5, .5, .5]}
@@ -107,34 +115,10 @@ var ARCarDemo = createReactClass({
           <ViroSound paused={false}
                      muted={false}
                      source={require('./res/alarm.mp3')}
-                     loop={true}
+                     loop={false}
                      volume={100.0}
                      onFinish={this.onFinishSound}
                      onError={this.onErrorSound}/>
-
-          <ViroText text={this.state.collapsedText}
-                    scale={[.5, .5, .5]}
-                    position={[0, 0, 0]}
-                    style={styles.cutTextStyle}
-                    onClick={this._onClickCollapsedText} />
-
-          <ViroText text={this.state.collapsedText}
-                    scale={[.5, .5, .5]}
-                    position={[-1, -1, -1]}
-                    style={styles.cutTextStyle}
-                    onClick={this._onClickCollapsedText} />
-
-          <ViroText text={this.state.collapsedText}
-                    scale={[.5, .5, .5]}
-                    position={[-3, 1, 1]}
-                    style={styles.cutTextStyle}
-                    onClick={this._onClickCollapsedText} />
-
-          <ViroText text={this.state.collapsedText}
-                    scale={[.5, .5, .5]}
-                    position={[2, 0, 2]}
-                    style={styles.cutTextStyle}
-                    onClick={this._onClickCollapsedText} />
 
           <Viro3DObject
               position={[1, 0, 1]}
@@ -307,6 +291,15 @@ var ARCarDemo = createReactClass({
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"allergic"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={false}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
+
           <Viro3DObject
               position={[0.7, 0.3, 0]}
               source={require('./res/tesla/epipen.obj')}
@@ -344,6 +337,15 @@ var ARCarDemo = createReactClass({
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"burn"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={false}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
+
           <Viro3DObject
               scale={[0.1, 0.1, 0.1]}
               position={[0.01, 0.01, -0.05]}
