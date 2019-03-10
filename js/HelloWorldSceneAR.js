@@ -44,11 +44,6 @@ var ARCarDemo = createReactClass({
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
-          <ViroText
-              text = {"Wash your skin!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 1, -1]} />
-
           <ViroSound paused={false}
                      muted={false}
                      source={require('./res/alarm.mp3')}
@@ -61,8 +56,12 @@ var ARCarDemo = createReactClass({
                     position={[0, 0, 0]}
                     scale={[0.5, 0.5, 0.5]}
                     style={styles.cutTextStyle}
-                    onClick={this._onClickPoisonText}
-          />
+                    onClick={this._onClickPoisonText}/>
+
+          <ViroText
+              text = {"Wash your skin!"}
+              scale={[0.5, 0.5, 0.5]}
+              position={[0, 1, -1]} />
 
         </ViroARImageMarker>
 
@@ -111,14 +110,6 @@ var ARCarDemo = createReactClass({
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-
-          <ViroSound paused={false}
-                     muted={false}
-                     source={require('./res/alarm.mp3')}
-                     loop={false}
-                     volume={100.0}
-                     onFinish={this.onFinishSound}
-                     onError={this.onErrorSound}/>
 
           <Viro3DObject
               position={[1, 0, 1]}
@@ -287,6 +278,14 @@ var ARCarDemo = createReactClass({
               width={2.5} height={2.5}
               arShadowReceiver={true}
           />
+
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={false}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
 
         </ViroARImageMarker>
 
