@@ -91,6 +91,14 @@ var ARCarDemo = createReactClass({
 
         <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
+            <ViroSound paused={false}
+                       muted={false}
+                       source={require('./res/alarm.mp3')}
+                       loop={false}
+                       volume={10.0}
+                       onFinish={this.onFinishSound}
+                       onError={this.onErrorSound}/>
+
           <ViroText text={this.state.collapsedText}
                     scale={[.5, .5, .5]}
                     position={[0, 0, 1]}
@@ -244,8 +252,7 @@ var ARCarDemo = createReactClass({
               materials={this.state.texture}
               animation={{name:"scaleArrow", run: true, loop: false}}
           />
-
-
+          
           <ViroSpotLight
               innerAngle={5}
               outerAngle={25}
