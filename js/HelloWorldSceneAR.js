@@ -31,6 +31,8 @@ var ARCarDemo = createReactClass({
       tapYellow: false,
       cutTextIndex: 0,
       cutText: text.cutText[0],
+      poisonTextIndex: 0,
+      poisonText: text.collapsedText[0],
     }
   },
 
@@ -39,25 +41,14 @@ var ARCarDemo = createReactClass({
       <ViroARScene>
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-          <ViroText
-              text = {"Wash your skin!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 1, -1]} />
 
-          <ViroText
-              text={"Do not scratch!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, .75, -1]} />
+          <ViroText text={this.state.poisonText}
+                    scale={[.5, .5, .5]}
+                    position={[0, 0, -1]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickPoisonText}
+          />
 
-          <ViroText
-              text={"Apply calamine or hydrocortisone cream!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 0.5, -1]} />
-
-          <ViroText
-              text={"Wash all clothing!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 0, -1]} />
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"cut"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
@@ -228,7 +219,22 @@ var ARCarDemo = createReactClass({
         cutText : text.cutText[this.state.cutTextIndex]
       });
     }
+  },
+
+  _onClickPoisonText() {
+    if (this.state.poisonTextIndex === 4) {
+      this.setState({
+        poisonTextIndex : 0,
+        poisonText : text.poisonText[0]
+      });
+    } else {
+      this.setState({
+        poisonTextIndex: this.state.poisonTextIndex + 1,
+        poisonText : text.poisonText[this.state.poisonTextIndex]
+      });
+    }
   }
+
 });
 
 ViroMaterials.createMaterials({
@@ -336,7 +342,7 @@ ViroAnimations.registerAnimations({
 var styles = StyleSheet.create({
   cutTextStyle: {
     fontFamily: 'Arial',
-    fontSize: 14,
+    fontSize: 12,
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',
@@ -344,10 +350,24 @@ var styles = StyleSheet.create({
 });
 
 var text = {
-  cutText: ["WASH and DRY your hands thoroughly",
-    "CLEAN the wound under running tap water",
-    "PAT the area dry with a clean towel",
-    "APPLY a sterile adhesive dressing, such as a plaster"]
+  cutText: ["1. WASH and DRY your hands thoroughly.",
+    "2. CLEAN the wound under running tap water.",
+    "3. PAT the area dry with a clean towel.",
+    "4. APPLY a sterile adhesive dressing, such as a plaster."],
+  poisonText: ["1. WASH your skin.",
+    "2. Do NOT scratch.",
+    "3. APPLY calamine or hydrocortisone cream.",
+    "4. WASH all clothing."],
+  collapsedText: ["1. With the person lying on their back, kneel on the floor at their side.",
+    "2. Extend the arm nearest you at a right angle to their body with their palm facing up.",
+    "3. Take their other arm and fold it so the back of their hand rests on the cheek closest to you, and hold it in place.",
+    "4. Use your free hand to bend the person's knee farthest from you to a right angle.",
+    "5. Carefully roll the person onto their side by pulling on the bent knee.",
+    "6. Their bent arm should be supporting the head, and their extended arm will stop you rolling them too far.",
+    "7. Make sure their bent leg is at a right angle.",
+    "8. Open their airway by gently tilting their head back and lifting their chin, and check that nothing is blocking their airway.",
+    "9. Stay with the person and monitor their condition until help arrives."],
+
 };
 
 module.exports = ARCarDemo;
