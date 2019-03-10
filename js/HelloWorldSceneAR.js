@@ -43,8 +43,8 @@ var ARCarDemo = createReactClass({
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
           <ViroText text={this.state.poisonText}
-                    scale={[.5, .5, .5]}
-                    position={[0, 0, -1]}
+                    position={[0, 0, 1]}
+                    scale={[0.5, 0.5, 0.5]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickPoisonText}
           />
@@ -94,7 +94,7 @@ var ARCarDemo = createReactClass({
               source={require('./res/tesla/recovery4.obj')}
               resources={[require('./res/tesla/recovery4.mtl')]}
               type="OBJ"
-              materials={this.state.texture}
+              materials={["white_sphere"]}
               animation={{name:"scaleWoman", run: true, loop: false}}
           />
 
