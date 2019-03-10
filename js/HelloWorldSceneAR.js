@@ -13,7 +13,7 @@ import {
   ViroARTrackingTargets,
   ViroSphere,
   ViroSpotLight,
-  ViroQuad, ViroText,
+  ViroQuad, ViroText, ViroSound,
 } from 'react-viro';
 
 var createReactClass = require('create-react-class');
@@ -44,8 +44,16 @@ var ARCarDemo = createReactClass({
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={true}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
+
           <ViroText text={this.state.poisonText}
-                    position={[1, 0, 1]}
+                    position={[0, 0, 0]}
                     scale={[0.5, 0.5, 0.5]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickPoisonText}
@@ -389,7 +397,7 @@ ViroAnimations.registerAnimations({
 var styles = StyleSheet.create({
   cutTextStyle: {
     fontFamily: 'Arial',
-    fontSize: 12,
+    fontSize: 30,
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',
