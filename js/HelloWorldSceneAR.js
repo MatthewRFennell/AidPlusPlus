@@ -31,6 +31,8 @@ var ARCarDemo = createReactClass({
       tapYellow: false,
       cutTextIndex: 0,
       cutText: text.cutText[0],
+      poisonTextIndex: 0,
+      poisonText: text.collapsedText[0],
     }
   },
 
@@ -39,25 +41,14 @@ var ARCarDemo = createReactClass({
       <ViroARScene>
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-          <ViroText
-              text = {"Wash your skin!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 1, -1]} />
 
-          <ViroText
-              text={"Do not scratch!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, .75, -1]} />
+          <ViroText text={this.state.poisonText}
+                    scale={[.5, .5, .5]}
+                    position={[0, 0, -1]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickPoisonText}
+          />
 
-          <ViroText
-              text={"Apply calamine or hydrocortisone cream!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 0.5, -1]} />
-
-          <ViroText
-              text={"Wash all clothing!"}
-              scale={[0.5, 0.5, 0.5]}
-              position={[0, 0, -1]} />
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"cut"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
@@ -228,7 +219,22 @@ var ARCarDemo = createReactClass({
         cutText : text.cutText[this.state.cutTextIndex]
       });
     }
+  },
+
+  _onClickPoisonText() {
+    if (this.state.poisonTextIndex === 4) {
+      this.setState({
+        poisonTextIndex : 0,
+        poisonText : text.poisonText[0]
+      });
+    } else {
+      this.setState({
+        poisonTextIndex: this.state.poisonTextIndex + 1,
+        poisonText : text.poisonText[this.state.poisonTextIndex]
+      });
+    }
   }
+
 });
 
 ViroMaterials.createMaterials({
