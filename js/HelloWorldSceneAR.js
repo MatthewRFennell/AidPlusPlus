@@ -291,7 +291,7 @@ var ARCarDemo = createReactClass({
                     position={[0, 0, 0]}
                     scale={[0.5, 0.5, 0.5]}
                     style={styles.cutTextStyle}
-                    onClick={this._onClickCollapsedText()}/>
+                    onClick={this._onClickCollapsedText}/>
 
         </ViroARImageMarker>
 
@@ -539,7 +539,7 @@ ViroAnimations.registerAnimations({
 var styles = StyleSheet.create({
   cutTextStyle: {
     fontFamily: 'Arial',
-    fontSize: 30,
+    fontSize: 14,
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',
