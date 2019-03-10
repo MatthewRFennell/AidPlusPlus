@@ -1,19 +1,13 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, { Component, Button } from 'react';
 
 import {StyleSheet} from 'react-native';
 
-import {
-  ViroScene,
-  ViroText,
-  Viro360Image,
-} from 'react-viro';
-
 export default class HelloWorldScene extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {} // Set initial state here
   }
@@ -21,7 +15,6 @@ export default class HelloWorldScene extends Component {
   render() {
     return (
         <Button
-            onPress={onPressLearnMore}
             title="Danger"
             color="#841584"
             accessibilityLabel="Learn more about Danger"
