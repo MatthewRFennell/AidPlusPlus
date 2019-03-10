@@ -45,7 +45,7 @@ var ARCarDemo = createReactClass({
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
           <ViroText text={this.state.poisonText}
-                    position={[0, 0, 1]}
+                    position={[1, 0, 1]}
                     scale={[0.5, 0.5, 0.5]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickPoisonText}
@@ -57,7 +57,7 @@ var ARCarDemo = createReactClass({
 
           <ViroText text={this.state.cutText}
                     scale={[.5, .5, .5]}
-                    position={[0, 0, 1]}
+                    position={[1, 0, 1]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickCutText} />
 
@@ -93,7 +93,7 @@ var ARCarDemo = createReactClass({
 
           <ViroText text={this.state.collapsedText}
                     scale={[.5, .5, .5]}
-                    position={[0, 0, 1]}
+                    position={[1, 0, 1]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickCollapsedText} />
 
