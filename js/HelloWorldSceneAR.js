@@ -157,6 +157,12 @@ var ARCarDemo = createReactClass({
                      onFinish={this.onFinishSound}
                      onError={this.onErrorSound}/>
 
+          <ViroText text={this.state.collapsedText}
+                    position={[0, 0, 0]}
+                    scale={[0.5, 0.5, 0.5]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickCollapsedText()}/>
+
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"allergic"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
