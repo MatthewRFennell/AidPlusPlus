@@ -32,7 +32,9 @@ var ARCarDemo = createReactClass({
       cutTextIndex: 0,
       cutText: text.cutText[0],
       poisonTextIndex: 0,
-      poisonText: text.collapsedText[0],
+      poisonText: text.poisonText[0],
+      collapsedTextIndex: 0,
+      collapsedText: text.collapsedText[0],
     }
   },
 
@@ -55,10 +57,9 @@ var ARCarDemo = createReactClass({
 
           <ViroText text={this.state.cutText}
                     scale={[.5, .5, .5]}
-                    position={[0, 0, -1]}
+                    position={[0, 0, 1]}
                     style={styles.cutTextStyle}
-                    onClick={this._onClickCutText}
-          />
+                    onClick={this._onClickCutText} />
 
           <Viro3DObject
               scale={[0.1, 0.1, 0.1]}
@@ -98,7 +99,13 @@ var ARCarDemo = createReactClass({
                        onFinish={this.onFinishSound}
                        onError={this.onErrorSound}/>
 
-            <Viro3DObject
+          <ViroText text={this.state.collapsedText}
+                    scale={[.5, .5, .5]}
+                    position={[0, 0, 1]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickCollapsedText} />
+
+          <Viro3DObject
               position={[1, 0, 1]}
               source={require('./res/tesla/recovery4.obj')}
               resources={[require('./res/tesla/recovery4.mtl')]}
@@ -241,7 +248,21 @@ var ARCarDemo = createReactClass({
         poisonText : text.poisonText[this.state.poisonTextIndex]
       });
     }
-  }
+  },
+
+  _onClickCollapsedText() {
+    if (this.state.collapsedTextIndex === 9) {
+      this.setState({
+        collapsedTextIndex : 0,
+        collapsedText : text.collapsedText[0]
+      });
+    } else {
+      this.setState({
+        collapsedTextIndex: this.state.collapsedTextIndex + 1,
+        collapsedText : text.collapsedText[this.state.collapsedTextIndex]
+      });
+    }
+  },
 
 });
 
