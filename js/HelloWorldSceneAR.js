@@ -45,7 +45,7 @@ var ARCarDemo = createReactClass({
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
           <ViroText text={this.state.poisonText}
-                    position={[0, 0, 1]}
+                    position={[1, 0, 1]}
                     scale={[0.5, 0.5, 0.5]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickPoisonText}
@@ -57,7 +57,7 @@ var ARCarDemo = createReactClass({
 
           <ViroText text={this.state.cutText}
                     scale={[.5, .5, .5]}
-                    position={[0, 0, 1]}
+                    position={[1, 0, 1]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickCutText} />
 
@@ -91,17 +91,35 @@ var ARCarDemo = createReactClass({
 
         <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
-            <ViroSound paused={false}
-                       muted={false}
-                       source={require('./res/alarm.mp3')}
-                       loop={false}
-                       volume={10.0}
-                       onFinish={this.onFinishSound}
-                       onError={this.onErrorSound}/>
+          <ViroSound paused={false}
+                     muted={false}
+                     source={require('./res/alarm.mp3')}
+                     loop={true}
+                     volume={100.0}
+                     onFinish={this.onFinishSound}
+                     onError={this.onErrorSound}/>
 
           <ViroText text={this.state.collapsedText}
                     scale={[.5, .5, .5]}
-                    position={[0, 0, 1]}
+                    position={[0, 0, 0]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickCollapsedText} />
+
+          <ViroText text={this.state.collapsedText}
+                    scale={[.5, .5, .5]}
+                    position={[-1, -1, -1]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickCollapsedText} />
+
+          <ViroText text={this.state.collapsedText}
+                    scale={[.5, .5, .5]}
+                    position={[-3, 1, 1]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickCollapsedText} />
+
+          <ViroText text={this.state.collapsedText}
+                    scale={[.5, .5, .5]}
+                    position={[2, 0, 2]}
                     style={styles.cutTextStyle}
                     onClick={this._onClickCollapsedText} />
 
