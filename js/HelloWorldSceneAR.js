@@ -44,6 +44,11 @@ var ARCarDemo = createReactClass({
         <ViroLightingEnvironment source={require('./res/tesla/garage_1k.hdr')}/>
         <ViroARImageMarker target={"poison"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
 
+          <ViroText
+              text = {"Wash your skin!"}
+              scale={[0.5, 0.5, 0.5]}
+              position={[0, 1, -1]} />
+
           <ViroSound paused={false}
                      muted={false}
                      source={require('./res/alarm.mp3')}
