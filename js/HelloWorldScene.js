@@ -1,8 +1,28 @@
 'use strict';
 
-import React, { Component, Button } from 'react';
+import React, { Component } from 'react';
 
 import {StyleSheet} from 'react-native';
+
+import Danger from './DR ABC/Danger'
+import Response from './DR ABC/Response'
+import Airway from './DR ABC/Airway'
+import Breathing from './DR ABC/Breathing'
+import Circulation from './DR ABC/Circulation'
+import {Router, Scene} from "react-native-router-flux";
+
+const App = () => (
+    <Router>
+      <Scene key="root">
+        <Scene key="Danger" component={Danger} title="Danger"/>
+        <Scene key="Response" component={Response} title="Response"/>
+        <Scene key="Airway" component={Airway} title="Airway"/>
+        <Scene key="Breathing" component={Breathing} title="Breathing"/>
+        <Scene key="Circulation" component={Circulation} title="Circulation"/>
+      </Scene>
+    </Router>
+);
+
 
 export default class HelloWorldScene extends Component {
 
@@ -14,11 +34,7 @@ export default class HelloWorldScene extends Component {
 
   render() {
     return (
-        <Button
-            title="Danger"
-            color="#841584"
-            accessibilityLabel="Learn more about Danger"
-        />
+        <App />
     );
   }
 

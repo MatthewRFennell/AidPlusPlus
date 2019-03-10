@@ -11,6 +11,7 @@
     "ngrok": "^3.1.1",
     "react": "16.6.1",
     "react-native": "0.57.7",
+    "react-native-router-flux": "^4.0.6",
     "react-viro": "2.13.0"
   },
   "devDependencies": {
