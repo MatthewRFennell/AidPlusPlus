@@ -89,7 +89,16 @@ var ARCarDemo = createReactClass({
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
-          <Viro3DObject
+
+            <ViroSound paused={false}
+                       muted={false}
+                       source={require('./res/alarm.mp3')}
+                       loop={false}
+                       volume={10.0}
+                       onFinish={this.onFinishSound}
+                       onError={this.onErrorSound}/>
+
+            <Viro3DObject
               position={[1, 0, 1]}
               source={require('./res/tesla/recovery4.obj')}
               resources={[require('./res/tesla/recovery4.mtl')]}
@@ -106,8 +115,7 @@ var ARCarDemo = createReactClass({
               materials={this.state.texture}
               animation={{name:"scaleArrow", run: true, loop: false}}
           />
-
-
+          
           <ViroSpotLight
               innerAngle={5}
               outerAngle={25}
