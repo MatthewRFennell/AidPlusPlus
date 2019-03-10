@@ -336,7 +336,7 @@ ViroAnimations.registerAnimations({
 var styles = StyleSheet.create({
   cutTextStyle: {
     fontFamily: 'Arial',
-    fontSize: 14,
+    fontSize: 12,
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',
@@ -344,10 +344,24 @@ var styles = StyleSheet.create({
 });
 
 var text = {
-  cutText: ["WASH and DRY your hands thoroughly",
-    "CLEAN the wound under running tap water",
-    "PAT the area dry with a clean towel",
-    "APPLY a sterile adhesive dressing, such as a plaster"]
+  cutText: ["1. WASH and DRY your hands thoroughly.",
+    "2. CLEAN the wound under running tap water.",
+    "3. PAT the area dry with a clean towel.",
+    "4. APPLY a sterile adhesive dressing, such as a plaster."],
+  poisonText: ["1. WASH your skin.",
+    "2. Do NOT scratch.",
+    "3. APPLY calamine or hydrocortisone cream.",
+    "4. WASH all clothing."],
+  collapsedText: ["1. With the person lying on their back, kneel on the floor at their side.",
+    "2. Extend the arm nearest you at a right angle to their body with their palm facing up.",
+    "3. Take their other arm and fold it so the back of their hand rests on the cheek closest to you, and hold it in place.",
+    "4. Use your free hand to bend the person's knee farthest from you to a right angle.",
+    "5. Carefully roll the person onto their side by pulling on the bent knee.",
+    "6. Their bent arm should be supporting the head, and their extended arm will stop you rolling them too far.",
+    "7. Make sure their bent leg is at a right angle.",
+    "8. Open their airway by gently tilting their head back and lifting their chin, and check that nothing is blocking their airway.",
+    "9. Stay with the person and monitor their condition until help arrives."],
+
 };
 
 module.exports = ARCarDemo;
