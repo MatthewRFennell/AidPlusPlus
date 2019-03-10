@@ -279,7 +279,6 @@ var ARCarDemo = createReactClass({
               width={2.5} height={2.5}
               arShadowReceiver={true}
           />
-
           <ViroSound paused={false}
                      muted={false}
                      source={require('./res/alarm.mp3')}
@@ -287,7 +286,7 @@ var ARCarDemo = createReactClass({
                      volume={100.0}
                      onFinish={this.onFinishSound}
                      onError={this.onErrorSound}/>
-
+                     
           <ViroText text={this.state.collapsedText}
                     position={[0, 0, 0]}
                     scale={[0.5, 0.5, 0.5]}
@@ -568,16 +567,15 @@ var text = {
     "2. Do NOT scratch.",
     "3. APPLY calamine or hydrocortisone cream.",
     "4. WASH all clothing."],
-  collapsedText: ["1. With the person lying on their back, kneel on the floor at their side.",
-    "2. Extend the arm nearest you at a right angle to their body with their palm facing up.",
-    "3. Take their other arm and fold it so the back of their hand rests on the cheek closest to you, and hold it in place.",
-    "4. Use your free hand to bend the person's knee farthest from you to a right angle.",
-    "5. Carefully roll the person onto their side by pulling on the bent knee.",
-    "6. Their bent arm should be supporting the head, and their extended arm will stop you rolling them too far.",
-    "7. Make sure their bent leg is at a right angle.",
-    "8. Open their airway by gently tilting their head back and lifting their chin, and check that nothing is blocking their airway.",
-    "9. Stay with the person and monitor their condition until help arrives."],
-
+  collapsedText: ["1. With the person lying on their back, KNEEL on the floor at their side.",
+    "2. EXTEND the arm nearest you at a right angle to their body with their palm facing UP.",
+    "3. Take their other arm and FOLD it so the back of their hand rests on the cheek closest to you, and HOLD it in place.",
+    "4. Use your free hand to BEND the person's knee farthest from you to a right angle.",
+    "5. Carefully ROLL the person onto their side by pulling on the bent knee.",
+    "6. Their bent arm should be SUPPORTING the head, their extended arm will stop you rolling them too far.",
+    "7. Make sure their bent leg is at a RIGHT ANGLE.",
+    "8. Open their airway by gently TILTING their head back and LIFTING their chin.",
+    "9. STAY with the person and monitor their condition until help arrives."]
 };
 
 module.exports = ARCarDemo;
