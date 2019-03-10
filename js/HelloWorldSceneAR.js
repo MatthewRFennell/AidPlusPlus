@@ -29,9 +29,10 @@ var ARCarDemo = createReactClass({
       tapGrey: false,
       tapRed: false,
       tapYellow: false,
+      cutTextIndex: 0,
+      cutText: text.cutText[0],
     }
   },
-
 
   render: function() {
     return (
@@ -60,6 +61,14 @@ var ARCarDemo = createReactClass({
         </ViroARImageMarker>
 
         <ViroARImageMarker target={"cut"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+
+          <ViroText text={this.state.cutText}
+                    scale={[.5, .5, .5]}
+                    position={[0, 0, -1]}
+                    style={styles.cutTextStyle}
+                    onClick={this._onClickCutText}
+          />
+
           <Viro3DObject
               scale={[0.1, 0.1, 0.1]}
               position={[0.0, 0.0, 0]}
@@ -206,6 +215,20 @@ var ARCarDemo = createReactClass({
       animateCar: true,
     })
   },
+
+  _onClickCutText() {
+    if (this.state.cutTextIndex === 4) {
+      this.setState({
+        cutTextIndex : 0,
+        cutText : text.cutText[0]
+      });
+    } else {
+      this.setState({
+        cutTextIndex: this.state.cutTextIndex + 1,
+        cutText : text.cutText[this.state.cutTextIndex]
+      });
+    }
+  }
 });
 
 ViroMaterials.createMaterials({
@@ -309,5 +332,22 @@ ViroAnimations.registerAnimations({
                   duration: 50, easing: "easeineaseout"},
     tapAnimation:[["scaleSphereUp", "scaleSphereDown"],]
 });
+
+var styles = StyleSheet.create({
+  cutTextStyle: {
+    fontFamily: 'Arial',
+    fontSize: 14,
+    color: '#ffffff',
+    textAlignVertical: 'center',
+    textAlign: 'center',
+  }
+});
+
+var text = {
+  cutText: ["WASH and DRY your hands thoroughly",
+    "CLEAN the wound under running tap water",
+    "PAT the area dry with a clean towel",
+    "APPLY a sterile adhesive dressing, such as a plaster"]
+};
 
 module.exports = ARCarDemo;
