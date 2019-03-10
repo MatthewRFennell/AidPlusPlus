@@ -35,6 +35,11 @@ var ARCarDemo = createReactClass({
       poisonText: text.poisonText[0],
       collapsedTextIndex: 0,
       collapsedText: text.collapsedText[0],
+      womanAnimation1: scaleUp,
+      womanAnimation2: scaleDown,
+      womanAnimation3: scaleDown,
+      womanAnimation4: scaleDown,
+      womanIndex: 0,
     }
   },
 
@@ -109,11 +114,141 @@ var ARCarDemo = createReactClass({
 
           <Viro3DObject
               position={[1, 0, 1]}
+              source={require('./res/tesla/recovery1.obj')}
+              resources={[require('./res/tesla/recovery1.mtl')]}
+              type="OBJ"
+              materials={["white_sphere"]}
+              animation={{name:"scaleWoman", run: true, loop: false}}
+              onClick={this._onClickChangeWoman}
+          />
+
+          <Viro3DObject
+              position={[0.5, 0, 0]}
+              source={require('./res/tesla/arrow.obj')}
+              resources={[require('./res/tesla/arrow.mtl')]}
+              type="OBJ"
+              materials={this.state.texture}
+              animation={{name:"scaleArrow", run: true, loop: false}}
+          />
+
+
+          <ViroSpotLight
+              innerAngle={5}
+              outerAngle={25}
+              direction={[0,-1,0]}
+              position={[0, 5, 1]}
+              color="#ffffff"
+              castsShadow={true}
+              shadowMapSize={2048}
+              shadowNearZ={2}
+              shadowFarZ={7}
+              shadowOpacity={.7}
+          />
+
+          <ViroQuad
+              rotation={[-90, 0, 0]}
+              position={[0, -0.001, 0]}
+              width={2.5} height={2.5}
+              arShadowReceiver={true}
+          />
+
+        </ViroARImageMarker>
+
+        <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+          <Viro3DObject
+              position={[1, 0, 1]}
+              source={require('./res/tesla/recovery2.obj')}
+              resources={[require('./res/tesla/recovery2.mtl')]}
+              type="OBJ"
+              materials={["white_sphere"]}
+              animation={{name:"scaleWoman", run: true, loop: false}}
+              onClick={this._onClickChangeWoman}
+          />
+
+          <Viro3DObject
+              position={[0.5, 0, 0]}
+              source={require('./res/tesla/arrow.obj')}
+              resources={[require('./res/tesla/arrow.mtl')]}
+              type="OBJ"
+              materials={this.state.texture}
+              animation={{name:"scaleArrow", run: true, loop: false}}
+          />
+
+
+          <ViroSpotLight
+              innerAngle={5}
+              outerAngle={25}
+              direction={[0,-1,0]}
+              position={[0, 5, 1]}
+              color="#ffffff"
+              castsShadow={true}
+              shadowMapSize={2048}
+              shadowNearZ={2}
+              shadowFarZ={7}
+              shadowOpacity={.7}
+          />
+
+          <ViroQuad
+              rotation={[-90, 0, 0]}
+              position={[0, -0.001, 0]}
+              width={2.5} height={2.5}
+              arShadowReceiver={true}
+          />
+
+        </ViroARImageMarker>
+
+        <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+          <Viro3DObject
+              position={[1, 0, 1]}
+              source={require('./res/tesla/recovery3.obj')}
+              resources={[require('./res/tesla/recovery3.mtl')]}
+              type="OBJ"
+              materials={["white_sphere"]}
+              animation={{name:"scaleWoman", run: true, loop: false}}
+              onClick={this._onClickChangeWoman}
+          />
+
+          <Viro3DObject
+              position={[0.5, 0, 0]}
+              source={require('./res/tesla/arrow.obj')}
+              resources={[require('./res/tesla/arrow.mtl')]}
+              type="OBJ"
+              materials={this.state.texture}
+              animation={{name:"scaleArrow", run: true, loop: false}}
+          />
+
+
+          <ViroSpotLight
+              innerAngle={5}
+              outerAngle={25}
+              direction={[0,-1,0]}
+              position={[0, 5, 1]}
+              color="#ffffff"
+              castsShadow={true}
+              shadowMapSize={2048}
+              shadowNearZ={2}
+              shadowFarZ={7}
+              shadowOpacity={.7}
+          />
+
+          <ViroQuad
+              rotation={[-90, 0, 0]}
+              position={[0, -0.001, 0]}
+              width={2.5} height={2.5}
+              arShadowReceiver={true}
+          />
+
+        </ViroARImageMarker>
+
+        <ViroARImageMarker target={"collapsed"} onAnchorFound={this._onAnchorFound} pauseUpdates={this.state.pauseUpdates}>
+          <Viro3DObject
+              position={[1, 0, 1]}
               source={require('./res/tesla/recovery4.obj')}
               resources={[require('./res/tesla/recovery4.mtl')]}
               type="OBJ"
               materials={["white_sphere"]}
               animation={{name:"scaleWoman", run: true, loop: false}}
+              onClick={this._onClickChangeWoman}
           />
 
           <Viro3DObject
@@ -254,6 +389,18 @@ var ARCarDemo = createReactClass({
     this.setState({
       animateCar: true,
     })
+  },
+
+  _onClickChangeWoman() {
+    if (this.state.womanIndex === 4) {
+      this.setState({
+        womanIndex : 0,
+      });
+    } else {
+      this.setState({
+        womanIndex: this.state.womanIndex + 1,
+      });
+    }
   },
 
   _onClickCutText() {
