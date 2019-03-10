@@ -35,6 +35,11 @@ var ARCarDemo = createReactClass({
       poisonText: text.poisonText[0],
       collapsedTextIndex: 0,
       collapsedText: text.collapsedText[0],
+      womanAnimation1: scaleUp,
+      womanAnimation2: scaleDown,
+      womanAnimation3: scaleDown,
+      womanAnimation4: scaleDown,
+      womanIndex: 0,
     }
   },
 
@@ -388,6 +393,18 @@ var ARCarDemo = createReactClass({
     this.setState({
       animateCar: true,
     })
+  },
+
+  _onClickChangeWoman() {
+    if (this.state.womanIndex === 4) {
+      this.setState({
+        womanIndex : 0,
+      });
+    } else {
+      this.setState({
+        womanIndex: this.state.womanIndex + 1,
+      });
+    }
   },
 
   _onClickCutText() {
